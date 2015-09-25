@@ -1,14 +1,10 @@
 ## Med-dico
 
-Mettre à jour avec :
-
-    git pull
-
 Install
 -------
     git clone ...
     php composer install
-    ouvrir config/app.php, puis 'debug' => env('APP_DEBUG', false) => debug' => env('APP_DEBUG', true). Pour activé le debug
+    ouvrir config/app.php, env('APP_DEBUG') passé la valeur à "true", pour activé le debug
     cp .env.example .env
     php artisan key:generate
 
