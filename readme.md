@@ -2,7 +2,6 @@
 
 Mettre à jour avec :
 
-    git remote set-url origin git@bitbucket.org:leaneous/jobtruster.git
     git pull
 
 Install
