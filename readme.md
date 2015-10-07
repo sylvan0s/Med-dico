@@ -12,3 +12,8 @@ Update
 ------
     git pull
     php composer install
+
+Install BDD
+-----------
+    crée une BDD med-dico
+    configurer le fichier config/database.php
