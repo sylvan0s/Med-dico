@@ -15,5 +15,5 @@ Update
 
 Install BDD
 -----------
-    crée une BDD med-dico
+    crée une BDD "med-dico"
     configurer le fichier config/database.php
