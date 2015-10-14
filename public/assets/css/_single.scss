@@ -361,25 +361,41 @@ section {
 
     &:hover { @include bp(1024) { background-color: $black; color: #FFF; } }
   }
-
-  .ou {
-    margin: 20px 0; font-weight: 700; text-align: center; @include fs(24); text-transform: uppercase; position: relative;
-
-    &:before {
-      content: ''; border-width: 1px 0; height: 0; width: 100%; border-style: solid; border-color: $black; position: absolute; left: 0; top: 50%; margin-top: -1px;
-      @include bp(1024) { display: none; }
-    }
-    span { background-color: #FFF; padding: 0 5px; position: relative; }
-  }
   .msg-pwd { @include fs(11); font-style: italic; }
 
-  .fb-connect-img { width: 100%; max-width: 450px; margin-bottom: 10px; }
+  .form-inscription {
+    width: 100%; max-width: 450px; margin: 0 auto;
 
-  .form-inscription, .ou, .form-connexion { @include bp(1024) { display: inline-block; vertical-align: middle; } }
-  .form-inscription, .form-connexion { @include bp(1024) { width: 450px; } }
-  .ou { @include bp(1024) { width: 100px; } }
+    .fb-connect-img { margin-bottom: 10px; }
+  }
 }
 
+
+
+
+
+/*********************************************/
+/*********************************************/
+/***********       CONNEXION        **********/
+/*********************************************/
+/*********************************************/
+/* SECTION CONNEXION */
+#section-connexion {
+  @include bp(1024) { display: table; }
+  .inner {
+    width: 100%; max-width: 450px; margin: 0 auto;
+    @include bp(1024) { width: 1000px; padding: 20px 0; max-width: 100%; }
+  }
+  h2 { margin-bottom: 20px; @include fs(32); }
+  input[type="submit"] {
+    width: 100%; background-color: transparent; @include transition(all, 0.25s, ease); border: 1px solid $black;
+    @include bp(1024) { cursor: pointer; }
+
+    &:hover { @include bp(1024) { background-color: $black; color: #FFF; } }
+  }
+
+  .form-connexion { width: 100%; max-width: 450px; margin: 0 auto; }
+}
 
 
 
@@ -459,4 +475,19 @@ section {
     a { text-decoration: underline; }
     p { margin-top: 5px; }
   }
+}
+
+
+
+
+
+/*********************************************/
+/*********************************************/
+/*************       FICHE        ************/
+/*********************************************/
+/*********************************************/
+/* SECTION FICHE */
+#section-fiche {
+  h4, button { display: inline-block; }
+  .cta-modifier { padding: 10px 15px; }
 }
