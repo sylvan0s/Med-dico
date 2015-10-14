@@ -12,10 +12,10 @@
 */
 
 Route::get('/', function () {
-	$data = array('un','deux','trois','quatre');
-    return View::make('welcome')->with('data', $data);
-    //return view('welcome')->with('data', $data);
+    return View::make('welcome');
 });
+
+Route::get('/users', 'Users\UsersController@index');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
