@@ -1,0 +1,196 @@
+<!doctype html>
+<!--[if lte IE 7]> <html class="ie7" lang="fr"> <![endif]-->
+<!--[if IE 8]> <html class="ie8" lang="fr"> <![endif]-->
+<!--[if IE 9]> <html class="ie9" lang="fr"> <![endif]-->
+<html lang="fr">
+    <head>
+    	<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+        <meta name="robots" content="noindex">
+        <meta name="googlebot" content="noindex">
+        <title>Med'dico</title>
+        <link href="assets/css/prod/screen.css" rel="stylesheet" />
+        <link href="assets/css/prod/slick.css" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!--[if IE]>
+        <link href="assets/css/prod/ie.css" rel="stylesheet" />
+ 		<![endif]-->
+    </head>
+
+    <body>
+        <a href="#" class="header-controls menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="header-controls close"><i class="fa fa-times"></i></a>
+
+        <header id="website-header">
+          <div class="inner">
+            <div id="logo">&nbsp;</div><!--
+
+          --><nav>
+              <ul>
+                <li><a href="index.html">Home</a></li><!--
+              --><li><a href="recherche.html">Rechercher un médicament</a></li><!--
+              --><li><a href="#">Mon compte</a></li><!--
+              --><li><a href="inscription.html">S'inscrire / Se connecter</a></li><!--
+              --><li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <section id="section-inscription">
+          <div class="valign">
+
+            <div class="inner">
+              <div class="form-inscription">
+                <h2>S'inscrire</h2>
+                <!-- <script>
+                    window.fbAsyncInit = function() {
+                        FB.init({
+                            appId      : '1721609828058577', // Set YOUR APP ID
+                            status     : true, // check login status
+                            cookie     : true, // enable cookies to allow the server to access the session
+                            xfbml      : true  // parse XFBML
+                        });
+
+                        FB.Event.subscribe('auth.authResponseChange', function(response)
+                        {
+                            if (response.status === 'connected')
+                            {
+                                console.log('Connected to Facebook');
+                            }
+                            else if (response.status === 'not_authorized')
+                            {
+                                console.log('Failed to Connect');
+                                //FAILED
+                            } else
+                            {
+                                console.log('Logged Out');
+                                //UNKNOWN ERROR
+                            }
+                        });
+
+                    };
+
+                    function Login()
+                    {
+
+                        FB.login(function(response) {
+                            if (response.authResponse)
+                            {
+                                getUserInfo();
+                            } else
+                            {
+                                console.log('User cancelled login or did not fully authorize.');
+                            }
+                        },{scope: 'email'});
+
+                    }
+
+                    function getUserInfo() {
+                        FB.api('/me?fields=name,email,first_name,last_name,gender', function(response) {
+                            console.log(response);
+                            //document.getElementById("status").innerHTML;
+                            document.getElementById('email').value = response.email;
+                            document.getElementById('firstname').value = response.first_name;
+                            document.getElementById('lastname').value = response.last_name;
+                            if (response.gender == 'male') {
+                                $('#M').attr('checked', 'checked');
+                            }
+                            if (response.gender == 'female') {
+                                $('#Mme').attr('checked', 'checked');
+                            }
+                        });
+                    }
+
+                    function Logout()
+                    {
+                        FB.logout(function(){document.location.reload();});
+                    }
+
+                    // Load the SDK asynchronously
+                    (function(d){
+                        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+                        if (d.getElementById(id)) {return;}
+                        js = d.createElement('script'); js.id = id; js.async = true;
+                        js.src = "//connect.facebook.net/fr_FR/all.js";
+                        ref.parentNode.insertBefore(js, ref);
+                    }(document));
+
+                </script> -->
+                <!-- <a id="fb_connect" href="#" onclick="Login()"><img src="assets/img/single/fb_connect.png" class="fb-connect-img" /></a> -->
+                <form action="#" method="post" id="formulaire-inscription">
+                  <div class="form-el">
+                    <input type="text" name="lastname" id="lastname" value="" placeholder="Nom" required />
+                  </div>
+                  <div class="form-el">
+                    <input type="text" name="firstname" id="firstname" value="" placeholder="Prénom" required />
+                  </div>
+                  <div class="form-el">
+                    <input type="email" name="email" id="email" value="" placeholder="Email" required />
+                  </div>
+                  <div class="form-el">
+                    <input type="text" name="pseudo" id="pseudo" value="" placeholder="Pseudo" required />
+                  </div>
+                  <div class="form-el">
+                    <input type="password" name="password" id="password" value="" placeholder="Mot de passe" maxlength="24" required />
+                    <span class="msg-pwd">Le mot de passe doit être compris entre 8 et 24 caractères.</span>
+                  </div>
+                  <div class="form-el">
+                    <input type="submit" name="inscription" id="inscription" value="S'inscrire" />
+                  </div>
+                </form>
+              </div><!--
+
+            --><div class="ou">
+                <p><span>Ou</span></p>
+              </div><!--
+
+            --><div class="form-connexion">
+                <h2>Se connecter</h2>
+                <form action="#" method="post" id="formulaire-connexion">
+                  <div class="form-el">
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required />
+                  </div>
+                  <div class="form-el">
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" required />
+                  </div>
+                  <div class="form-el">
+                    <input type="submit" name="connexion" id="connexion" value="Se connecter" />
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <footer id="website-footer">
+          <div class="inner">
+            <div class="socials">
+              <ul>
+                <li><a href="https://www.facebook.com/jeangabi" target="_blank"><i class="fa fa-facebook"></i></a></li><!--
+              --><li><a href="https://twitter.com/sylvan0s" target="_blank"><i class="fa fa-twitter"></i></a></li><!--
+            --><li><a href="https://github.com/sylvan0s/Med-dico" target="_blank"><i class="fa fa-github"></i></a></li>
+              </ul>
+            </div>
+
+            <div class="copyright">
+              <p>
+                Med'dico &copy; 2015.<br />
+                Tous droits réservés.
+              </p>
+            </div>
+          </div>
+        </footer>
+
+        <script src="assets/js/vendor/jquery-1.7.2.min.js"></script>
+        <script src="assets/js/vendor/modernizr-2.5.3.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="assets/js/libs/slick.min.js"></script>
+        <script src="assets/js/libs/response.min.js"></script>
+        <script src="assets/js/libs/jquery.validate.min.js"></script>
+        <script src="assets/js/libs/additional-methods.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

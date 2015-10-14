@@ -1,0 +1,462 @@
+/*********************************************/
+/*********************************************/
+/*************      GLOBAL        ************/
+/*********************************************/
+/*********************************************/
+header, section, footer {
+  display: block; position: relative; width: 100%; color: $black; font-family: 'Lato', sans-serif; background-color: #FFF;
+
+  .inner {
+    padding: 20px;
+    @include bp(1024) { width: 1000px; margin: 0 auto; padding: 60px 0; }
+  }
+  p { @include fs(14); }
+  a { color: $black; text-decoration: none; cursor: pointer; @include transition(all, 0.25s, ease); }
+  .bold { font-weight: 700; }
+  button { outline: none; }
+}
+section {
+  .valign { @include bp(1024) { display: table-cell; vertical-align: middle; } }
+  .titles {
+    text-align: center;
+    @include bp(1024) { padding-bottom: 60px; }
+
+    br { @include bp(768) { display: none; } }
+  }
+
+  // Formulaire
+  .form-el {
+    display: inline-block; width: 100%; margin-bottom: 10px;
+
+    &:last-child { margin-bottom: 0; }
+  }
+  input { border: 1px solid $black; }
+  input[type="text"], input[type="email"], input[type="password"], textarea, input[type="submit"] {
+    padding: 10px 15px; outline: none; width: 100%; font-family: 'Lato', sans-serif;
+
+    &.valid { border: 2px solid $green; }
+    &.error { border: 2px solid #db0000; }
+  }
+  input[type="submit"] { text-transform: uppercase; }
+  // PLACEHOLDERS
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: $lightgrey; font-family: 'Lato', sans-serif; }
+  input::-moz-input-placeholder, textarea::-moz-input-placeholder { color: $lightgrey; font-family: 'Lato', sans-serif; }
+  input:-moz-input-placeholder, textarea:-moz-input-placeholder { color: $lightgrey; font-family: 'Lato', sans-serif; }
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: $lightgrey; font-family: 'Lato', sans-serif; }
+}
+#section-bienvenue, #section-download, #landing-footer { background-color: rgba(52,247,153,1); @include filter-gradient(#34f799, #2be353, horizontal); @include background-image(linear-gradient(left top, rgba(52,247,153,1) 0%, rgba(43,227,83,1) 100%)); }
+
+
+
+
+
+/*********************************************/
+/*********************************************/
+/**************     INCLUDES      ************/
+/*********************************************/
+/*********************************************/
+/* HEADER */
+.header-controls { color: $black; position: fixed; top: 20px; right: 20px; @include fs(24); z-index: 50; }
+.menu { display: block; @include transition(display, 0.25s, ease-out); }
+.close { display: none; @include transition(display, 0.25s, ease-out); }
+#header-landing {
+  position: fixed; top: 0; left: 0; background-color: $bgcolor; z-index: 5;
+  @include bp(1024) { position: absolute; background-color: transparent; top: 0; left: 0; }
+
+  ul {
+    text-align: center;
+    @include bp(1024) { text-align: right; }
+  }
+  ul li {
+    padding-bottom: 10px;
+    @include bp(1024) { display: inline; padding-bottom: 0; margin-right: 20px; }
+
+    a { @include bp(1024) { font-weight: 700; } }
+    a:hover { @include bp(1024) { color: #FFF; padding-bottom: 5px; border-bottom: 3px solid #FFF; } }
+
+    &:last-child {
+      @include bp(1024) { padding-right: 0; margin-right: 0; }
+
+      a {  @include bp(1024) { color: #FFF; } }
+      a {  @include bp(1024) { border: none; padding-bottom: 0; } }
+    }
+  }
+}
+#website-header {
+  #logo, nav { @include bp(1024) { display: inline-block; vertical-align: top; } }
+  #logo { @include bp(1024) { width: 25%; } }
+  nav {
+    @include bp(1024) { width: 75%; }
+
+    ul { @include bp(1024) { text-align: right; } }
+    ul li {
+      @include bp(1024) { display: inline-block; vertical-align: top; padding-right: 20px; }
+      &:last-child { @include bp(1024) { padding-right: 0; } }
+    }
+  }
+}
+
+/* FOOTER */
+#landing-footer {
+  text-align: center; margin-top: -20px;
+  @include bp(1024) { margin-top: -85px; }
+
+  .inner {
+    padding: 40px 20px 20px;
+    @include bp(1024) { padding: 130px 0 40px; }
+  }
+  .social {
+    margin: 35px 0;
+
+    ul li {
+      display: inline;
+
+      &:first-child { margin-right: 10px; }
+    }
+    .fa { @include fs(18); border: 2px solid $black; @include border-radius(25px); @include transition(all, 0.25s, ease); }
+    .fa:hover { @include bp(1024) { border: 2px solid #FFF; background-color: #FFF; color: $green; } }
+
+    .fa-facebook { padding: 10px 15px; }
+    .fa-twitter { padding: 10px 12px; }
+  }
+
+  .delicious { @include bp(1024) { color: #FFF; } }
+}
+#website-footer {
+  text-align: center;
+
+  .inner { @include bp(1024) { padding: 20px 0; } }
+  .socials {
+    margin-bottom: 20px;
+
+    ul li {
+      display: inline-block; vertical-align: top; margin-right: 10px;
+
+      &:last-child { margin-right: 0; }
+    }
+  }
+  .fa {
+    @include fs(18);
+    @include bp(1024) { @include fs(24); }
+  }
+}
+
+
+
+
+
+/*********************************************/
+/*********************************************/
+/*************       INDEX        ************/
+/*********************************************/
+/*********************************************/
+/* SECTION BIENVENUE */
+#section-bienvenue {
+  @include bp(1024) { height: 100%; display: table; width: 100%;}
+
+  .inner {
+    padding: 20px 20px 40px;
+    @include bp(1024) { padding: 20px 0; }
+  }
+
+  .left, .right { @include bp(1024) { display: inline-block; vertical-align: top; width: 50%; } }
+  .right {
+    p {
+      text-align: center;
+      @include bp(1024) { @include fs(40); padding-left: 50px; text-align: left; }
+
+      .bold { color: #FFF; }
+    }
+    ul {
+      margin-top: 20px; text-align: center;
+
+      li {
+        @include bp(1024) { display: inline-block; vertical-align: top; }
+
+        &:first-child { @include bp(1024) { margin-right: 20px;} }
+      }
+    }
+    .cta {
+      &:hover { @include bp(1024) { border: 2px solid #FFF; background-color: #FFF; color: $green; } }
+      &:first-child { margin-bottom: 10px; }
+    }
+  }
+}
+
+/* SECTION A PROPOS */
+#section-a-propos {
+  background-color: $bgcolor; @include transform(skewY(-5deg)); z-index: 4; margin-top: -20px;
+  @include bp(1024) { margin-top: -85px; }
+
+  .inner {
+    @include transform(skewY(5deg)); padding: 40px 20px;
+    @include bp(1024) { padding: 90px 0 120px; }
+  }
+  ul {
+    text-align: center; margin-top: 20px;
+    @include bp(1024) { margin-top: 0; }
+  }
+  ul li {
+    text-align: center; margin: 0 auto 40px; width: 250px; @include transition(all, 0.25s, ease); display: inline-block; vertical-align: top;
+    @include bp(1024) { margin: 0 auto; }
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  .about-icon {
+    margin-bottom: 15px;
+
+    .fa { border: 2px solid $black; @include fs(24); @include border-radius(30px); padding: 15px; @include transition(all, 0.25s, ease); }
+    .fa-tablet { @include border-radius(35px); padding: 15px 20px; }
+    .fa-cog { padding: 15px 17px; }
+
+    h2 { margin-top: 10px; @include transition(all, 0.25s, ease); }
+
+    &:hover .fa, &:hover h2 { @include bp(1024) { color: $green; cursor: default; } }
+    &:hover .fa { @include bp(1024) { border: 2px solid $green; color: #FFF; background-color: $green;} }
+  }
+  .about-text {
+    p { padding: 0 20px; }
+  }
+}
+
+/* SECTION SCREENSHOTS */
+#section-screenshots {
+  text-align: center;
+
+  .inner {
+    padding: 40px 20px 20px;
+    @include bp(1024) { padding: 60px 0; }
+  }
+  // SLIDER
+  .slick-list { margin: 20px 0; }
+  .slick-dots {
+    li {
+      display: inline; margin-right: 5px;
+      &:last-child { margin-right: 0; }
+    }
+    button {
+      position: relative; text-indent: -9999px; background: none; border: none; width: 20px; font-size: 0; cursor: pointer;
+
+      &::before { content: ""; display: block; }
+      &::after { content: ""; display: inline-block; height: 12px; width: 12px; border-radius: 50%; background-color: $lightgrey; @include border-radius(10px); }
+    }
+  }
+  .slick-active button::after { background-color: $grey; }
+  .slick-prev, .slick-next { display: none !important; }
+
+  // CHEVRONS
+  .chevron-left, .chevron-right {
+    display: none;
+    @include bp(1024) { display: block; position: absolute; top: 65%; @include fs(45); left: 50%; }
+  }
+  .chevron-left { margin-left: -480px; }
+  .chevron-right { margin-left: 440px; }
+}
+
+/* SECTION DEMO */
+#section-demo {
+  background-color: $bgcolor;
+
+  .container-video {
+    background-color: #FFF; @include box-shadow(0px 0px 5px 0px #656565); margin-top: 20px; padding: 5px;
+    @include bp(1024) { background-color: transparent; padding: 0; box-shadow: none; margin-top: 0; }
+  }
+}
+
+/* SECTION DOWNLOAD */
+#section-download {
+  text-align: center; /* background-color: $bgcolor; background-image: url('../../img/shattered.png'); */
+
+  .inner {
+    padding: 20px 20px 60px;
+    @include bp(1024) { padding: 60px 0 175px; }
+  }
+  .downloads {
+    margin-top: 20px;
+
+    ul li {
+      @include bp(1024) { display: inline-block; vertical-align: top; }
+
+      &:first-child { @include bp(1024) { margin-right: 20px; } }
+    }
+    button {
+      margin-bottom: 10px;
+      @include bp(1024) { margin-bottom: 0; }
+    }
+    .fa {
+      @include fs(18); margin-right: 5px; @include transition(all, 0.25s 0, ease);
+      @include bp(1024) { @include fs(35); }
+    }
+
+    br {
+      display: none;
+      @include bp(1024) { display: block; }
+    }
+    i, span { display: inline-block; vertical-align: middle; }
+    .cta:hover {
+      @include bp(1024) { color: $green; border: 2px solid #FFF; background-color: #FFF; }
+      .fa { @include bp(1024) { color: $green; } }
+    }
+  }
+}
+
+/* SECTION CONTACT */
+#section-contact {
+  @include transform(skewY(-5deg)); z-index: 4; margin-top: -20px;
+  @include bp(1024) { margin-top: -85px; }
+
+  .inner {
+    @include transform(skewY(5deg)); padding: 40px 20px;
+    @include bp(1024) { padding: 100px 0; }
+  }
+
+  #formulaire-contact { margin: 20px 0 0; }
+  input[type="text"], input[type="email"], textarea {
+    border: 2px solid $grey; color: $lightgrey; @include border-radius(20px);
+
+    &.valid { border: 2px solid $green; }
+    &.error { border: 2px solid #db0000; }
+  }
+  textarea { resize: vertical; }
+  input[type="submit"] { width: auto; }
+
+  .left, .right { @include bp(1024) { display: inline-block; vertical-align: top; } }
+  .left {
+    @include bp(1024) { width: 60%; }
+  }
+  .right {
+    text-align: center; margin-top: 20px;
+    @include bp(1024) { width: calc(100% - 60%); text-align: left; padding-left: 100px; }
+
+    ul li { margin-bottom: 10px; }
+    i, p { display: inline-block; vertical-align: middle;}
+    i { margin-right: 10px; border: 2px solid $green; @include border-radius(25px); @include fs(18); color: $green; }
+    .fa-map-marker { padding: 10px 14px; }
+    .fa-envelope-o { padding: 10px; }
+    a { @include bp(1024) { color: $green; } }
+  }
+}
+
+
+
+
+
+/*********************************************/
+/*********************************************/
+/**********       INSCRIPTION        *********/
+/*********************************************/
+/*********************************************/
+/* SECTION INSCRIPTION */
+#section-inscription {
+  @include bp(1024) { display: table; }
+  .inner {
+    width: 100%; max-width: 450px; margin: 0 auto;
+    @include bp(1024) { width: 1000px; padding: 20px 0; max-width: 100%; }
+  }
+  h2 { margin-bottom: 20px; @include fs(32); }
+  input[type="submit"] {
+    width: 100%; background-color: transparent; @include transition(all, 0.25s, ease); border: 1px solid $black;
+    @include bp(1024) { cursor: pointer; }
+
+    &:hover { @include bp(1024) { background-color: $black; color: #FFF; } }
+  }
+
+  .ou {
+    margin: 20px 0; font-weight: 700; text-align: center; @include fs(24); text-transform: uppercase; position: relative;
+
+    &:before {
+      content: ''; border-width: 1px 0; height: 0; width: 100%; border-style: solid; border-color: $black; position: absolute; left: 0; top: 50%; margin-top: -1px;
+      @include bp(1024) { display: none; }
+    }
+    span { background-color: #FFF; padding: 0 5px; position: relative; }
+  }
+  .msg-pwd { @include fs(11); font-style: italic; }
+
+  .fb-connect-img { width: 100%; max-width: 450px; margin-bottom: 10px; }
+
+  .form-inscription, .ou, .form-connexion { @include bp(1024) { display: inline-block; vertical-align: middle; } }
+  .form-inscription, .form-connexion { @include bp(1024) { width: 450px; } }
+  .ou { @include bp(1024) { width: 100px; } }
+}
+
+
+
+
+
+/*********************************************/
+/*********************************************/
+/***********       RECHERCHE        **********/
+/*********************************************/
+/*********************************************/
+/* SECTION RECHERCHE */
+#section-recherche {
+  text-align: right;
+
+  .inner { @include bp(1024) { padding: 20px 0;} }
+
+  .form-el {
+    margin-bottom: 20px; text-align: left;
+    &:last-child { margin-bottom: 0; }
+  }
+
+  input, button { display: inline-block; vertical-align: top; }
+  input[type="text"] {
+    width: calc(100% - 20% - 10px); margin-right: 10px;
+    @include bp(1024) { width: calc(100% - 10% - 10px); }
+  }
+  button {
+    width: 20%;
+    @include bp(1024) { width: 10%; }
+
+    i { @include transform(rotate(90deg)); }
+  }
+
+  ul {
+    text-align: center;
+
+    li {
+      display: inline-block; vertical-align: top; padding-right: 10px;
+      @include bp(1024) { padding-right: 20px; }
+
+      a { @include bp(1024) { @include fs(18); } }
+    }
+  }
+  a {
+    text-align: right;
+
+    i, span { display: inline-block; vertical-align: middle; }
+    i { position: relative; @include transition(all, 0.25s, ease); right: 0; }
+    .fa-chevron-right { @include fs(10); }
+
+    &:hover {
+      i { @include bp(1024) { right: 3px; } }
+    }
+  }
+
+  #recherche-en-cours {
+    text-align: center; margin-top: 20px;
+    .fa-spinner { margin-right: 5px; @include fs(18); }
+    img, span { display: inline-block; vertical-align: middle; }
+    img { margin-right: 5px; }
+  }
+}
+
+/* SECTION RESULTATS */
+#section-resultats {
+  h5 { text-decoration: underline; margin-bottom: 20px; }
+
+  .inner {
+    width: 100%; max-width: 450px; margin: 0 auto;
+    @include bp(1024) { width: 1000px; max-width: 100%; padding: 20px 0; }
+  }
+  .result {
+    padding: 10px 5px; border-bottom: 1px solid $black;
+    @include bp(1024) { width: 100%; max-width: 750px; margin: 0 auto; }
+
+    &:last-child { border-bottom: none; }
+
+    a { text-decoration: underline; }
+    p { margin-top: 5px; }
+  }
+}
