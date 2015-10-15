@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers\Medicaments;
 
-use DB;
+use App\Medicaments;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UsersController extends Controller
+class MedicamentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = DB::select('select * from users');
-        return view('user', ['users' => $users]);
+        //
     }
 
     /**
@@ -25,9 +24,24 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('pages.add_medicament');
+    }
+
+    /**
+     * Creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function news(Request $request)
+    {
+        Medicaments::create([
+            'name' => $request->get('name'),
+            'définition' => $request->get('définition'),
+            'ordonnance' => $request->get('ordonnance')
+        ]);
+        return view('welcome');
     }
 
     /**
@@ -60,7 +74,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -72,7 +86,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -83,6 +97,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $medicament = Medicaments::find($id);
+        $medicament->delete();
     }
 }

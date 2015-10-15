@@ -25,3 +25,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('medicaments/add', 'Medicaments\MedicamentsController@create');
+Route::post('medicaments/new', 'Medicaments\MedicamentsController@news');
+Route::delete('medicaments/{id}', 'Medicaments\MedicamentsController@destroy');
