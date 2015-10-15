@@ -26,6 +26,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+Route::get('home', 'HomeController@index');
+
+Route::get('medicaments/fiche/{id}', 'Medicaments\MedicamentsController@show');
 Route::get('medicaments/add', 'Medicaments\MedicamentsController@create');
 Route::post('medicaments/new', 'Medicaments\MedicamentsController@news');
 Route::delete('medicaments/{id}', 'Medicaments\MedicamentsController@destroy');

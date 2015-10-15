@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Medicaments;
+namespace App\Http\Controllers;
 
 use DB;
-use App\Medicaments;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class MedicamentsController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,9 @@ class MedicamentsController extends Controller
      */
     public function index()
     {
-        //
+        $medicaments = DB::select('select * from medicaments');
+
+        return view('pages.home', ['medicaments' => $medicaments]);
     }
 
     /**
@@ -25,24 +26,9 @@ class MedicamentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        return view('pages.add_medicament');
-    }
-
-    /**
-     * Creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function news(Request $request)
-    {
-        Medicaments::create([
-            'name' => $request->get('name'),
-            'définition' => $request->get('définition'),
-            'ordonnance' => $request->get('ordonnance')
-        ]);
-        return view('welcome');
+        //
     }
 
     /**
@@ -64,9 +50,7 @@ class MedicamentsController extends Controller
      */
     public function show($id)
     {
-        //$medicament = Medicaments::find($id);
-        $medicament = DB::select('select * from medicaments where id = ?', [$id]);
-        return view('pages.fiche', ['medicament' => $medicament]);
+        //
     }
 
     /**
@@ -77,7 +61,7 @@ class MedicamentsController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -89,7 +73,7 @@ class MedicamentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**
@@ -100,7 +84,6 @@ class MedicamentsController extends Controller
      */
     public function destroy($id)
     {
-        $medicament = Medicaments::find($id);
-        $medicament->delete();
+        //
     }
 }

@@ -171,13 +171,5 @@
     @include('includes.footer-vitrine')
 </footer>
 
-<script src="assets/js/vendor/jquery-1.7.2.min.js"></script>
-<script src="assets/js/vendor/modernizr-2.5.3.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="assets/js/libs/slick.min.js"></script>
-<script src="assets/js/libs/response.min.js"></script>
-<script src="assets/js/libs/jquery.validate.min.js"></script>
-<script src="assets/js/libs/additional-methods.min.js"></script>
-<script src="assets/js/main.js"></script>
 </body>
 </html>
