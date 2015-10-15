@@ -188,6 +188,17 @@ $(function() {
                 medicament: {
                   required: true,
                   minlength: 3
+                },
+                nom_medicament: {
+                  required: true,
+                  minlength: 3
+                },
+                ordonnance: {
+                  required: true
+                },
+                description_medicament: {
+                  required: true,
+                  minlength: 3
                 }
               }
             });
