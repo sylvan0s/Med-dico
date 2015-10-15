@@ -112,6 +112,8 @@ $(function() {
           $('.container-video iframe').css('height', videoHeight);
 
 
+          /* INDEX */
+          ( width > 1024 ) ? $('#section-last-medicaments .inner').css('min-height', height - headerHeight - footerHeight - 120) : ''; // 120 car padding du inner principal
           /* INSCRIPTION */
           ( width > 1024 ) ? $('#section-inscription .inner').css('min-height', height - headerHeight - footerHeight) : '';
           /* RECHERCHE */
