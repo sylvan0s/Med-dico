@@ -543,9 +543,11 @@ section {
 /*********************************************/
 /*********************************************/
 /* SECTION LAST MEDICAMENT */
-.left, .right { display: inline-block; vertical-align: top; padding: 0 20px; }
-.left { width: 65%; border-right: 1px solid $black; }
-.right { width: 35%; }
+#section-index {
+  .left, .right { display: inline-block; vertical-align: top; padding: 0 20px; }
+  .left { width: 65%; border-right: 1px solid $black; }
+  .right { width: 35%; }
+}
 
 #section-last-medicaments, #section-top-contributeurs, #section-top-medicaments {
   .inner { width: 100%; padding: 0 0 20px; height: auto;}
@@ -553,3 +555,19 @@ section {
   ul { margin-left: 20px; }
 }
 #section-top-contributeurs { margin-bottom: 40px; }
+
+
+
+
+
+/*********************************************/
+/*********************************************/
+/************       CONTACT        ***********/
+/*********************************************/
+/*********************************************/
+/* SECTION CONTACT WEBSITE */
+#section-contact-website {
+  .inner { padding: 20px 0; }
+  h4 { margin-bottom: 20px; border-bottom: 1px solid $black; padding-bottom: 5px; @include fs(24); }
+  .cta-submit:hover { background-color: $black; color: #FFF; }
+}

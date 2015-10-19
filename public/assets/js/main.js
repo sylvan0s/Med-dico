@@ -201,6 +201,10 @@ $(function() {
                 description_medicament: {
                   required: true,
                   minlength: 3
+                },
+                sujet: {
+                  required: true,
+                  minlength: 3
                 }
               }
             });
