@@ -55,14 +55,14 @@ $(function() {
             // PARTIE RECHERCHE
             // --> Gérer en ajax au submit
             $('#recherche-en-cours, #section-resultats').hide();
-            $('#section-recherche .cta-search, #section-recherche li a').on('click', function(e){
+           /* $('#section-recherche .cta-search, #section-recherche li a').on('click', function(e){
               e.preventDefault();
               $('#recherche-en-cours').show();
               setTimeout(function() {
                 $('#section-resultats').show();
                 $('#recherche-en-cours').hide();
               }, 3000);
-            });
+            });*/
         },
 
         initSlick: function() {

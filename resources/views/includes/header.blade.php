@@ -4,8 +4,8 @@
           --><nav>
         <ul>
             <li><a href="/home">Home</a></li><!--
-              --><li><a href="recherche.html">Rechercher un médicament</a></li><!--
-              --><li><a href="#">Mon compte</a></li><!--
+              --><li><a href="recherche">Rechercher un médicament</a></li><!--
+              --><li><a href="compte">Mon compte</a></li><!--
                 @if (Auth::check())
                     --><li><a href="/auth/logout">Se déconnecter</a></li><!--
                 @else

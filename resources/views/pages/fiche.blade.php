@@ -19,8 +19,8 @@
     <div class="inner">
         @foreach ($medicament as $medoc)
             <div class="header-fiche">
-                <h4>{{ $medoc->name }}</h4><!--
-                --><a href="#"><button class="cta-modifier">Modifier</button></a>
+                <h4>{{ $medoc->name }}</h4>
+                <!-- <a href="#"><button class="cta-modifier">Modifier</button></a> -->
             </div>
 
             <div class="body-fiche">

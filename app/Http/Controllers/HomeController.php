@@ -17,7 +17,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$user = Auth::user();
         $medicaments = DB::select('select * from medicaments');
         $users = DB::select('select * from users');
         return view('pages.home', compact(array('medicaments', 'users')));
