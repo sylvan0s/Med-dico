@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$user = Auth::user();
-        $medicaments = DB::select('select * from medicaments');
-        $users = DB::select('select * from users');
-        return view('pages.home', compact(array('medicaments', 'users')));
+        return view('pages.contact');
     }
 
     /**

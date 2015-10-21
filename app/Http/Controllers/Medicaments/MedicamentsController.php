@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Medicaments;
 
 use DB;
+use Auth;
 use App\Medicaments;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -37,12 +38,14 @@ class MedicamentsController extends Controller
      */
     public function news(Request $request)
     {
+        $user = Auth::user();
         Medicaments::create([
+            'id_user' => $user['id'],
             'name' => $request->get('name'),
             'définition' => $request->get('définition'),
             'ordonnance' => $request->get('ordonnance')
         ]);
-        return view('welcome');
+        return redirect('home');
     }
 
     /**

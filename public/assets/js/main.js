@@ -17,8 +17,12 @@ $(function() {
 
             // Animation du scroll au clic sur une ancre
             $('#header-landing nav a, .anchor').on('click', function(e){
-                e.preventDefault();
-                $('html,body').animate({scrollTop: $($(this).attr("href")).offset().top}, 1000);
+
+                if ( !$(this).hasClass('website') ) {
+                    e.preventDefault();
+                    $('html,body').animate({scrollTop: $($(this).attr("href")).offset().top}, 1000);
+                }
+
             });
 
             // Action au resize de la page

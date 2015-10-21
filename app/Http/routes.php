@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return View::make('welcome');
+    //return View::make('welcome');
+    return view('welcome');
 });
 
 Route::get('/users', 'Users\UsersController@index');
@@ -26,8 +27,11 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::get('home', 'HomeController@index');
+Route::resource('home', 'HomeController@index');
+Route::resource('contact', 'ContactController@index');
+Route::get('test', 'TestController@index');
 
+// Medicament routes
 Route::get('medicaments/fiche/{id}', 'Medicaments\MedicamentsController@show');
 Route::get('medicaments/add', 'Medicaments\MedicamentsController@create');
 Route::post('medicaments/new', 'Medicaments\MedicamentsController@news');

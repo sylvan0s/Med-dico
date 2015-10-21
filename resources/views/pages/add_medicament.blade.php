@@ -19,6 +19,7 @@
             <div class="inner">
                 <h2>Ajouter un médicament</h2>
                 <form action="/medicaments/new" method="post" id="formulaire-ajout-medicament">
+                    {!! csrf_field() !!}
                     <div class="line1">
                         <div class="form-el">
                             <input type="text" name="name" id="nom_medicament" placeholder="Nom du médicament" required />

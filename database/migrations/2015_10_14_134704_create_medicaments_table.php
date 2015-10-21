@@ -13,8 +13,8 @@ class CreateMedicamentsTable extends Migration
     public function up()
     {
         Schema::create('medicaments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_user')->unique();
+            $table->increments('id')->unique();
+            $table->integer('id_user');
             $table->text('name');
             $table->text('définition');
             $table->boolean('ordonnance');

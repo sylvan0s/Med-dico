@@ -6,7 +6,7 @@
               <li><a href="#section-demo">Démo</a></li>
               <li><a href="#section-download">Téléchargez</a></li>
               <li><a href="#section-contact">Contact</a></li>
-              <li><a href="/home">Accedez à la base</a></li>
+              <li><a href="/home" class="website">Accedez à la base</a></li>
         </ul>
     </nav>
 </div>

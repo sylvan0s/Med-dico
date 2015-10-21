@@ -17,7 +17,6 @@
 
 <section id="section-index">
     <div class="inner">
-
         <div class="left">
             <div id="section-last-medicaments">
                 <div class="inner">
@@ -25,7 +24,7 @@
 
                     <ul>
                         @foreach ($medicaments as $medicament)
-                            <li>1. <a href='medicaments/fiche/{{ $medicament->id }}' target="_blank">{{ $medicament->name }}</a></li>
+                            <li>1. <a href='medicaments/fiche/{{ $medicament->id }}'>{{ $medicament->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -38,11 +37,9 @@
                     <h4>Top contributeurs</h4>
 
                     <ul>
-                        <li>1. Xavierdu93</li>
-                        <li>2. Moulouddu94</li>
-                        <li>3. Aurexdu77</li>
-                        <li>4. Youssefdu93</li>
-                        <li>5. JeanGabdu45</li>
+                        @foreach ($users as $user)
+                            <li>1. {{$user->pseudo}}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -61,7 +58,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
