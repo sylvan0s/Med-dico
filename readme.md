@@ -17,3 +17,5 @@ Install BDD
 -----------
     crée une BDD "med-dico"
     configurer le fichier config/database.php
+    php artisan migrate
+

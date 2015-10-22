@@ -3,7 +3,7 @@
 
           --><nav>
         <ul>
-            <li><a href="/home">Home</a></li><!--
+            <li><a href="home">Home</a></li><!--
               --><li><a href="recherche">Rechercher un médicament</a></li><!--
               --><li><a href="compte">Mon compte</a></li><!--
                 @if (Auth::check())
