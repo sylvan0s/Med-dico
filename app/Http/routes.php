@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Http\Response;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -37,3 +39,17 @@ Route::get('medicaments/fiche/{id}', 'Medicaments\MedicamentsController@show');
 Route::get('medicaments/add', 'Medicaments\MedicamentsController@create');
 Route::post('medicaments/new', 'Medicaments\MedicamentsController@news');
 Route::delete('medicaments/{id}', 'Medicaments\MedicamentsController@destroy');
+
+Route::group(['prefix' => 'api'], function() {
+
+    Route::post('login', 'Api\AuthController@login');
+    Route::post('search', 'Api\SearchController@search');
+
+    Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function() {
+        Route::post('logout', 'Api\AuthController@logout');
+
+        Route::get('test', function(){
+            return response()->json(['foo'=>'bar']);
+        });
+    });
+});
