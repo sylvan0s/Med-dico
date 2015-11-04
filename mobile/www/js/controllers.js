@@ -32,7 +32,7 @@ angular.module('starter.controllers', [])
 
     //console.log('Doing login', $scope.loginData);
 
-      $http.post( ApiEndpoint.url + "/med-dico/public/auth/login",
+     /* $http.post( ApiEndpoint.url + "/med-dico/public/auth/login",
           {
               "email" : $scope.loginData.email,
               "password" : $scope.loginData.password
@@ -44,14 +44,14 @@ angular.module('starter.controllers', [])
               if (data != null) {
                   alert("error post : " + data.error);
               }
-          });
-    /*$http.post( ApiEndpoint.url + "/med-dico/public/api/login",
+          });*/
+    $http.post( ApiEndpoint.url + "/med-dico/public/api/login",
         {
           "email" : $scope.loginData.email,
           "password" : $scope.loginData.password
         },"json").
         success(function(data) {
-            console.log(data.credentials);
+           // console.log(data.credentials);
           $http.get(ApiEndpoint.url + "/med-dico/public/api/test?token=" + data.token).
               success(function(data) {
                   alert(data.foo);
@@ -65,7 +65,7 @@ angular.module('starter.controllers', [])
             if(data != null) {
                 alert("error post : " + data.error);
             }
-        });*/
+        });
 
 
     // Simulate a login delay. Remove this and replace with your login
