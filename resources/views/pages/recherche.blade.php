@@ -92,7 +92,7 @@
                     <h5>{{$count}} résultats pour la recherche commençant par la lettre "{{$begin}}" :</h5>
                 @endif
             @foreach ($results as $result)
-                <li> {{$result->name}}</li>
+                <li> <a href='medicaments/fiche/{{ $result->id }}'>{{$result->name}}</a></li>
             @endforeach
         @endif
     </div>
