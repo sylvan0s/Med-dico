@@ -1,0 +1,10 @@
+{
+  "name": "med-dico_mobile",
+  "app_id": "",
+  "proxies": [
+      {
+        "path": "/api",
+        "proxyUrl": "http://med-dico.apps:8888/api"
+      }
+    ]
+}
