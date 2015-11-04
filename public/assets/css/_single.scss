@@ -421,6 +421,7 @@ section {
     width: calc(100% - 20% - 10px); margin-right: 10px;
     @include bp(1024) { width: calc(100% - 10% - 10px); }
   }
+  input[type="submit"] { border: none; cursor: pointer; background-color: transparent; padding: 0; }
   button {
     width: 20%;
     @include bp(1024) { width: 10%; }
