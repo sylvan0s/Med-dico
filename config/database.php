@@ -54,7 +54,7 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'     =>  '127.0.0.1:8889',
+            'host'     =>  'localhost',
             'database' => 'med-dico',
             'username' => 'root',
             'password' => 'root',
