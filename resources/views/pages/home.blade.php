@@ -38,7 +38,7 @@
 
                     <ul>
                         @foreach ($users as $user)
-                            <li>1. {{$user->pseudo}}</li>
+                            <li>- {{$user->pseudo}}</li>
                         @endforeach
                     </ul>
                 </div>
