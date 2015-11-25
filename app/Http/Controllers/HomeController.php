@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $medicaments = DB::select('select * from medicaments');
+        $medicaments = DB::select("SELECT *  FROM `medicaments` WHERE `created_at` BETWEEN '" . date('Y-m-d', strtotime('-7 days')) . "' AND '" . date('Y-m-d') . "' LIMIT 10");
         $users = DB::select('select * from users');
         return view('pages.home', compact(array('medicaments', 'users')));
     }

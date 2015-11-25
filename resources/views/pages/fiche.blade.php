@@ -25,7 +25,7 @@
 
             <div class="body-fiche">
                 <p class="keywords">Mots-clés : keyword1 - keyword2</p>
-                <p>{{ $medoc->définition }}</p>
+                <p>{{ $medoc->description }}</p>
             </div>
         @endforeach
     </div>

@@ -24,9 +24,11 @@
 
                     <ul>
                         @foreach ($medicaments as $medicament)
-                            <li>1. <a href='medicaments/fiche/{{ $medicament->id }}'>{{ $medicament->name }}</a></li>
+                            <li> -  <a href='medicaments/fiche/{{ $medicament->id }}'>{{ $medicament->name }}</a></li>
                         @endforeach
+
                     </ul>
+
                 </div>
             </div>
         </div><!--

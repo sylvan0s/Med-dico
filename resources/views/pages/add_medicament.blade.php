@@ -36,7 +36,7 @@
 
                     <div class="line2">
                         <div class="form-el">
-                            <textarea name="définition" id="description_medicament" placeholder="Description du medicament" rows="8" cols="40" required></textarea>
+                            <textarea name="description" id="description_medicament" placeholder="Description du medicament" rows="8" cols="40" required></textarea>
                         </div>
                     </div>
 

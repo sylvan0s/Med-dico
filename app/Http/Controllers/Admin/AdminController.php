@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Medicaments;
+namespace App\Http\Controllers\Admin;
 
-use DB;
-use Auth;
-use App\Medicaments;
 use Illuminate\Http\Request;
+use Auth;
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class MedicamentsController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,9 @@ class MedicamentsController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $medicaments = DB::select("SELECT * FROM `medicaments` WHERE id_user LIKE '" . $user['id'] . "'");
+        return view('pages.mes_medicaments', compact(array('medicaments')));
     }
 
     /**
@@ -26,29 +27,9 @@ class MedicamentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        return view('pages.add_medicament');
-    }
-
-    /**
-     * Creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function news(Request $request)
-    {
-        $user = Auth::user();
-        $now = new DateTime();
-
-        DB::table('medicaments')->insert([
-            'id_user' => $user['id'],
-            'name' => $request->get('name'),
-            'description' => $request->get('description'),
-            'ordonnance' => $request->get('ordonnance'),
-            'created_at' => $now->format('Y-m-d H:i:s')
-        ]);
-        return redirect('home');
+        //
     }
 
     /**
@@ -70,8 +51,7 @@ class MedicamentsController extends Controller
      */
     public function show($id)
     {
-        $medicament = DB::select('select * from medicaments where id = ?', [$id]);
-        return view('pages.fiche', ['medicament' => $medicament]);
+        //
     }
 
     /**
@@ -82,7 +62,7 @@ class MedicamentsController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -94,7 +74,7 @@ class MedicamentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**
@@ -105,7 +85,6 @@ class MedicamentsController extends Controller
      */
     public function destroy($id)
     {
-        $medicament = Medicaments::find($id);
-        $medicament->delete();
+        //
     }
 }

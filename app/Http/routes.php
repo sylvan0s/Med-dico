@@ -32,7 +32,11 @@ Route::get('home', 'HomeController@index');
 Route::get('contact', 'ContactController@index');
 Route::get('recherche', 'RechercheController@index');
 Route::post('recherche', 'RechercheController@search');
+Route::get('admin', 'Admin\AdminController@index');
+
+// Test
 Route::get('test', 'TestController@index');
+
 
 // Medicament routes
 Route::get('medicaments/fiche/{id}', 'Medicaments\MedicamentsController@show');
