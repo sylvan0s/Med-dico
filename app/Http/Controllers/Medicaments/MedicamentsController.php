@@ -39,7 +39,7 @@ class MedicamentsController extends Controller
     public function news(Request $request)
     {
         $user = Auth::user();
-        $now = new DateTime();
+        $now = new \DateTime();
 
         DB::table('medicaments')->insert([
             'id_user' => $user['id'],
@@ -48,7 +48,7 @@ class MedicamentsController extends Controller
             'ordonnance' => $request->get('ordonnance'),
             'created_at' => $now->format('Y-m-d H:i:s')
         ]);
-        return redirect('home');
+        return redirect('admin');
     }
 
     /**
@@ -86,6 +86,18 @@ class MedicamentsController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function ShowUpdate($id)
+    {
+        $medicament = DB::select('select * from medicaments where id = ?', [$id]);
+        return view('pages.update_medicament', ['medicament' => $medicament]);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -94,7 +106,16 @@ class MedicamentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $now = new \DateTime();
+        DB::table('medicaments')
+            ->where('id', $id)
+            ->update([
+                'name' => $request->get('name'),
+                'description' => $request->get('description'),
+                'ordonnance' => $request->get('ordonnance'),
+                'updated_at' => $now->format('Y-m-d H:i:s')
+            ]);
+        return redirect('admin');
     }
 
     /**

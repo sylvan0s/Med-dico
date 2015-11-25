@@ -41,8 +41,11 @@ Route::get('test', 'TestController@index');
 // Medicament routes
 Route::get('medicaments/fiche/{id}', 'Medicaments\MedicamentsController@show');
 Route::get('medicaments/add', 'Medicaments\MedicamentsController@create');
+Route::get('medicaments/update/{id}', 'Medicaments\MedicamentsController@ShowUpdate');
+Route::post('medicaments/update/{id}', 'Medicaments\MedicamentsController@update');
 Route::post('medicaments/new', 'Medicaments\MedicamentsController@news');
-Route::delete('medicaments/{id}', 'Medicaments\MedicamentsController@destroy');
+
+//Route::delete('medicaments/{id}', 'Medicaments\MedicamentsController@destroy');
 
 Route::group(['prefix' => 'api'], function() {
 

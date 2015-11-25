@@ -18,7 +18,11 @@
             <div class="inner">
                 <h4>Mes medicaments</h4>
                 @foreach ($medicaments as $medicament)
-                    <li> <a href='medicaments/fiche/{{ $medicament->id }}'>{{ $medicament->name }}</a></li>
+                    <li>
+                        <a href='medicaments/fiche/{{ $medicament->id }}'>{{ $medicament->name }}</a>
+                        <a href='medicaments/update/{{ $medicament->id }}' class="cta-submit">Modifier</a>
+                        <a href='medicaments/delete/{{ $medicament->id }}' class="cta-submit">Supprimer</a>
+                    </li>
                 @endforeach
                 <br/>
                 <br/>
