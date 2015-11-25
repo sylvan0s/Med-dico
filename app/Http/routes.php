@@ -50,7 +50,9 @@ Route::post('medicaments/new', 'Medicaments\MedicamentsController@news');
 Route::group(['prefix' => 'api'], function() {
 
     Route::post('login', 'Api\AuthController@login');
+    Route::post('register', 'Api\AuthController@register');
     Route::post('search', 'Api\SearchController@search');
+    Route::get('home', 'Api\HomeController@index');
 
     Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function() {
         Route::post('logout', 'Api\AuthController@logout');

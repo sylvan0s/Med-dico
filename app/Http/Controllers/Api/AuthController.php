@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use JWTAuth;
+use DB;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class AuthController extends Controller {
         }
 
         // all good so return the token
-        return response()->json(compact('token'));
+        return response()->json(compact(array('token', 'credentials')));
     }
 
 
@@ -46,5 +47,20 @@ class AuthController extends Controller {
         ]);
 
         JWTAuth::invalidate($request->input('token'));
+    }
+
+    public function register(Request $request)
+    {
+        $now = new \DateTime();
+
+        DB::table('users')->insert([
+            'lastname' => $request->get('lastname'),
+            'firstname' => $request->get('firstname'),
+            'email' => $request->get('email'),
+            'pseudo' => $request->get('pseudo'),
+            'password' => bcrypt($request->get('password')),
+            'created_at' => $now->format('Y-m-d H:i:s')
+        ]);
+        return response()->json('register success');
     }
 }

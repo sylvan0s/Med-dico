@@ -20,7 +20,7 @@ class SearchController extends Controller
        //$letter = $request->get('submit');
         //$begin = "";
         if($search !== null) {
-            $request = "select * from `medicaments` where `name` like '%" . $search . "%'";
+            $request = "select * from `medicaments` where `name` like '%" . $search . "%' LIMIT 100";
             //$word = $search;
         }
         /* if($letter !== null) {
