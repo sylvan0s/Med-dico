@@ -53,6 +53,8 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('register', 'Api\AuthController@register');
     Route::post('search', 'Api\SearchController@search');
     Route::get('home', 'Api\HomeController@index');
+    Route::get('fiche/{id}', 'Api\MedicamentController@fiche');
+    Route::get('admin/{user_email}', 'Api\MedicamentController@show');
 
     Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function() {
         Route::post('logout', 'Api\AuthController@logout');

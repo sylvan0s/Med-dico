@@ -12,10 +12,13 @@ angular.module('starter.controllers', [])
         // init token
         $scope.token = ApiEndpoint.token;
 
+        $scope.test = function() {
+            console.log("coucou");
+        };
+
         setInterval(function(){
-            console.log(ApiEndpoint.token);
             $scope.token = ApiEndpoint.token;
-        }, 2000);
+        }, 1500);
 
         $scope.loginData = {};
         $scope.registerData = {};
@@ -41,6 +44,18 @@ angular.module('starter.controllers', [])
             });
         };
 
+        $scope.refreshMedicament = function() {
+            $http.get(ApiEndpoint.url + "/med-dico/public/api/admin/" + ApiEndpoint.email_user).
+                success(function(data) {
+                    console.log(data);
+                    $scope.medicaments = data.medicament[0];
+                }).
+                error(function(data) {
+                    if(data != null)
+                        alert("error get user medicament : " + data.error);
+                });
+        };
+
         // Triggered in the login modal to close it
         $scope.closeLogin = function() {
             $scope.modalLogin.hide();
@@ -60,12 +75,16 @@ angular.module('starter.controllers', [])
             $scope.modalRegister.show();
         };
 
+        $scope.logout = function() {
+            ApiEndpoint.token = '';
+        };
+
         // Perform the login action when the user submits the login form
         $scope.doLogin = function() {
 
     //console.log('Doing login', $scope.loginData);
 
-    $http.post( ApiEndpoint.url + "/med-dico/public/api/login",
+    $http.post(ApiEndpoint.url + "/med-dico/public/api/login",
         {
           "email" : $scope.loginData.email,
           "password" : $scope.loginData.password
@@ -80,7 +99,6 @@ angular.module('starter.controllers', [])
                 alert("error post login: " + data.error);
             }
         });
-
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -115,11 +133,10 @@ angular.module('starter.controllers', [])
             }, 1000);
         };
 })
-    .controller('SearchCtrl', function($scope, $timeout, $http, ApiEndpoint) {
+    .controller('SearchCtrl', function($scope, $timeout, $http, ApiEndpoint, $ionicLoading) {
         var vm = this;
         $scope.searchData = {};
         $("#search").keyup(function() {
-
             clearTimeout(vm.plainSearch_timeout);
             vm.plainSearch_timeout = setTimeout(function(){
                 Search();
@@ -127,18 +144,28 @@ angular.module('starter.controllers', [])
         });
 
         $scope.searchClear = function() {
+            $('#search').val('');
+        };
 
+        $scope.show = function() {
+            $ionicLoading.show({
+                template: "Loading... <ion-spinner></ion-spinner>"
+            });
+        };
+        $scope.hide = function(){
+            $ionicLoading.hide();
         };
 
        var Search = function() {
             if($scope.searchData.search.length > 0){
+                $scope.show();
                 $http.post( ApiEndpoint.url + "/med-dico/public/api/search",
                     {
                         "search" : $scope.searchData.search
                     },"json").
                     success(function(data) {
-                        //console.log(data.results);
                         $scope.medicaments = data.results;
+                        $scope.hide()
                     }).
                     error(function(data) {
                         if(data != null) {
@@ -152,12 +179,26 @@ angular.module('starter.controllers', [])
     .controller('HomeCtrl', function($scope, $stateParams, $http, ApiEndpoint) {
         $http.get(ApiEndpoint.url + "/med-dico/public/api/home").
             success(function(data) {
-                //alert(data);
-                //console.log(data);
                 $scope.medicaments = data;
             }).
             error(function(data) {
                 if(data != null)
                     alert("error get : " + data.error);
             });
+    })
+
+    .controller('FicheCtrl', function($scope, $stateParams, $http, ApiEndpoint) {
+        console.log($stateParams.medicamentId);
+        $http.get(ApiEndpoint.url + "/med-dico/public/api/fiche/" + $stateParams.medicamentId).
+            success(function(data) {
+                $scope.medicaments = data.medicament[0];
+            }).
+            error(function(data) {
+                if(data != null)
+                    alert("error get info medicament : " + data.error);
+            });
+    })
+    .controller('AdminCtrl', function($scope, $stateParams, $http, ApiEndpoint) {
+        console.log(ApiEndpoint.email_user);
+        $scope.refreshMedicament();
     });

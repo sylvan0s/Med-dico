@@ -7,7 +7,7 @@
 angular.module('starter', ['ionic', 'starter.controllers'])
     .value('ApiEndpoint', {
         //url: 'http://localhost:8100/api'
-        url: 'http://10.104.16.15:8888',
+        url: 'http://192.168.1.25:8888',
         token: '',
         email_user: ''
     })
@@ -64,6 +64,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             controller: 'HomeCtrl'
           }
         }
+      })
+      .state('app.fiche', {
+          url: '/fiche/:medicamentId',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/fiche.html',
+                  controller: 'FicheCtrl'
+              }
+          }
+      })
+      .state('app.medicament', {
+          url: '/admin',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/medicamentList.html',
+                  controller: 'AdminCtrl'
+              }
+          }
       })
 
  /* .state('app.single', {

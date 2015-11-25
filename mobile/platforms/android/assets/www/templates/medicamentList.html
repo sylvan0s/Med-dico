@@ -1,0 +1,21 @@
+<ion-view view-title="Mes médicaments">
+  <ion-content>
+    <div class="list">
+
+      <div class="item item-divider">
+       Liste de mes médicaments  <i class="icon ion-loop" ng-click="refreshMedicament()"></i>
+      </div>
+
+      <ion-item >
+        {{medicaments.name}} <i class="icon ion-edit"></i> <i class="icon ion-trash-a"></i>
+      </ion-item>
+      <div class="row responsive-sm">
+        <div class="col">
+          <button class="button button-block"><i class="icon ion-plus-circled"></i> Ajouter un médicament</button>
+        </div>
+      </div>
+
+
+    </div>
+  </ion-content>
+</ion-view>

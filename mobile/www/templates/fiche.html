@@ -1,0 +1,79 @@
+<ion-view view-title="Fiche du médicament">
+  <ion-content>
+    <div class="list">
+
+      <div class="item item-divider">
+       Nom du médicament
+      </div>
+
+      <ion-item >
+        {{medicaments.name}}
+      </ion-item>
+      <div class="item item-divider">
+        Description du médicament
+      </div>
+
+      <ion-item >
+        {{medicaments.description}}
+      </ion-item>
+
+      <div class="item item-divider">
+        Forme du médicament
+      </div>
+
+      <ion-item >
+        {{medicaments.forme}}
+      </ion-item>
+
+      <div class="item item-divider">
+        Voie
+      </div>
+
+      <ion-item >
+        {{medicaments.voie}}
+      </ion-item>
+
+      <div class="item item-divider">
+        Voie
+      </div>
+
+      <ion-item >
+        {{medicaments.voie}}
+      </ion-item>
+      <div class="item item-divider">
+        Remboursement
+      </div>
+
+      <ion-item >
+        {{medicaments.remboursement}}
+      </ion-item>
+
+      <div class="item item-divider">
+        Prix du médicament
+      </div>
+
+      <ion-item >
+        {{medicaments.prix}}
+      </ion-item>
+
+      <div class="item item-divider">
+        Laboratoire
+      </div>
+
+      <ion-item >
+        {{medicaments.laboratoire}}
+      </ion-item>
+
+      <div class="item item-divider">
+        Ordonnance requis
+      </div>
+
+      <ion-item ng-if="medicaments.ordonnance == 1">
+        Oui
+      </ion-item>
+      <ion-item ng-if="medicaments.ordonnance == 0">
+        Non
+      </ion-item>
+    </div>
+  </ion-content>
+</ion-view>
