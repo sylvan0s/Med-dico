@@ -23,6 +23,7 @@ angular.module('starter.controllers', [])
         $scope.loginData = {};
         $scope.registerData = {};
 
+
       // Create the login modal that we will use later
 
         $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -82,8 +83,6 @@ angular.module('starter.controllers', [])
         // Perform the login action when the user submits the login form
         $scope.doLogin = function() {
 
-    //console.log('Doing login', $scope.loginData);
-
     $http.post(ApiEndpoint.url + "/med-dico/public/api/login",
         {
           "email" : $scope.loginData.email,
@@ -95,8 +94,9 @@ angular.module('starter.controllers', [])
             $scope.showAlert("login success");
         }).
         error(function(data) {
-            if(data != null) {
-                alert("error post login: " + data.error);
+            if(data.error == "invalid_credentials") {
+                $scope.showAlert("Login ou mot de passe incorrect");
+                //alert("error post login: " + data.error);
             }
         });
 
@@ -198,7 +198,64 @@ angular.module('starter.controllers', [])
                     alert("error get info medicament : " + data.error);
             });
     })
-    .controller('AdminCtrl', function($scope, $stateParams, $http, ApiEndpoint) {
+    .controller('AdminCtrl', function($scope, $stateParams, $timeout, $http, ApiEndpoint, $ionicModal) {
         console.log(ApiEndpoint.email_user);
+        $scope.addData = {};
+        $scope.refreshMedicament = function() {
+            console.log("refresh");
+            $http.get(ApiEndpoint.url + "/med-dico/public/api/admin/" + ApiEndpoint.email_user).
+                success(function(data) {
+                    console.log(data);
+                    if(data.medicament.length == 1)
+                        $scope.medicaments = data.medicament[0];
+                    else
+                        $scope.medicaments = data.medicament;
+                }).
+                error(function(data) {
+                    if(data != null)
+                        alert("error get user medicament : " + data.error);
+                });
+        };
         $scope.refreshMedicament();
+        $ionicModal.fromTemplateUrl('templates/medicamentAdd.html', {
+            scope: $scope
+        }).then(function(modal) {
+            $scope.modalAdd = modal;
+        });
+        $scope.add = function() {
+            $scope.modalAdd.show();
+        };
+        $scope.closeAdd = function() {
+            $scope.modalAdd.hide();
+        };
+        $scope.doAdd = function() {
+            console.log($scope.addData);
+            $http.post( ApiEndpoint.url + "/med-dico/public/api/add",
+                {
+                    "email_user" : ApiEndpoint.email_user,
+                    "name" : $scope.addData.name,
+                    "description" : $scope.addData.description,
+                    "forme" : $scope.addData.forme,
+                    "voie" : $scope.addData.voie,
+                    "remboursement" : $scope.addData.remboursement,
+                    "prix" : $scope.addData.prix,
+                    "laboratoire" : $scope.addData.laboratoire,
+                    "ordonnance" : $scope.addData.voie
+                },"json").
+                success(function() {
+                    $scope.showAlert("Ajout de medicament success");
+                    $scope.refreshMedicament();
+                    $scope.closeAdd();
+                }).
+                error(function(data) {
+                    if(data != null) {
+                        alert("error post login: " + data.error);
+                    }
+                });
+            // Simulate a login delay. Remove this and replace with your login
+            // code if using a login system
+            $timeout(function() {
+                $scope.closeAdd();
+            }, 1000);
+        };
     });

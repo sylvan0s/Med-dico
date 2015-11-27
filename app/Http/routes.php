@@ -55,6 +55,7 @@ Route::group(['prefix' => 'api'], function() {
     Route::get('home', 'Api\HomeController@index');
     Route::get('fiche/{id}', 'Api\MedicamentController@fiche');
     Route::get('admin/{user_email}', 'Api\MedicamentController@show');
+    Route::Post('add', 'Api\MedicamentController@add');
 
     Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function() {
         Route::post('logout', 'Api\AuthController@logout');

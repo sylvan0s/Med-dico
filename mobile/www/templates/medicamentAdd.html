@@ -1,0 +1,47 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Ajouter médicament</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeAdd()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doAdd()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Nom du médicament" ng-model="addData.name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Description du médicament" ng-model="addData.description">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Forme du médicament" ng-model="addData.forme">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Voie" ng-model="addData.voie">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Remboursement" ng-model="addData.remboursement">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Prix du médicament" ng-model="addData.prix">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Laboratoire" ng-model="addData.laboratoire">
+        </label>
+        <label class="item item-toggle">
+          ordonnance
+          <label class="toggle">
+            <input type="checkbox" ng-model="addData.ordonnance">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Ajouter</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

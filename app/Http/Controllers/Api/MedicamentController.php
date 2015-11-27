@@ -70,9 +70,22 @@ class MedicamentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function add(Request $request)
     {
-        //
+        $now = new \DateTime();
+        $id_user = DB::table('users')->where('email', $request->get('email_user'))->value('id');
+        DB::table('medicaments')->insert([
+            'id_user' => $id_user,
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'forme' => $request->get('forme'),
+            'voie' => $request->get('voie'),
+            'remboursement' => $request->get('remboursement'),
+            'prix' => $request->get('prix'),
+            'laboratoire' => $request->get('laboratoire'),
+            'ordonnance' => $request->get('ordonnance'),
+            'created_at' => $now->format('Y-m-d H:i:s')
+        ]);
     }
 
     /**
