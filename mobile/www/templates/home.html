@@ -2,8 +2,8 @@
   <ion-content>
     <div class="list">
 
-      <div class="item item-divider">
-       Médicament récent
+      <div class="item item-button-right">
+       <b>Médicament récent</b> <button class="button button-light" ng-click="refreshHome()"><i class="icon ion-loop" ></i> </button>
       </div>
 
       <ion-item ng-repeat="medicament in medicaments" href="#/app/fiche/{{medicament.id}}">

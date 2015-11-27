@@ -177,14 +177,18 @@ angular.module('starter.controllers', [])
     })
 
     .controller('HomeCtrl', function($scope, $stateParams, $http, ApiEndpoint) {
-        $http.get(ApiEndpoint.url + "/med-dico/public/api/home").
-            success(function(data) {
-                $scope.medicaments = data;
-            }).
-            error(function(data) {
-                if(data != null)
-                    alert("error get : " + data.error);
-            });
+        $scope.refreshHome = function() {
+            $http.get(ApiEndpoint.url + "/med-dico/public/api/home").
+                success(function(data) {
+                    $scope.medicaments = data;
+                }).
+                error(function(data) {
+                    if(data != null)
+                        alert("error get : " + data.error);
+                });
+        };
+        $scope.refreshHome();
+
     })
 
     .controller('FicheCtrl', function($scope, $stateParams, $http, ApiEndpoint) {
@@ -205,8 +209,6 @@ angular.module('starter.controllers', [])
             console.log("refresh");
             $http.get(ApiEndpoint.url + "/med-dico/public/api/admin/" + ApiEndpoint.email_user).
                 success(function(data) {
-                    //console.log(data.medicament.length);
-                    //console.log(data.medicament[0]);
                     $scope.medicaments = data.medicament;
                 }).
                 error(function(data) {

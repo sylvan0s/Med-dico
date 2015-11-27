@@ -22,6 +22,9 @@
                         <a href='medicaments/fiche/{{ $medicament->id }}'>{{ $medicament->name }}</a>
                         <a href='medicaments/update/{{ $medicament->id }}' class="cta-submit">Modifier</a>
                         <a href='medicaments/delete/{{ $medicament->id }}' class="cta-submit">Supprimer</a>
+                        </br>
+                        </br>
+                        </br>
                     </li>
                 @endforeach
                 <br/>
