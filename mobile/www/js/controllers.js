@@ -205,11 +205,9 @@ angular.module('starter.controllers', [])
             console.log("refresh");
             $http.get(ApiEndpoint.url + "/med-dico/public/api/admin/" + ApiEndpoint.email_user).
                 success(function(data) {
-                    console.log(data);
-                    if(data.medicament.length == 1)
-                        $scope.medicaments = data.medicament[0];
-                    else
-                        $scope.medicaments = data.medicament;
+                    //console.log(data.medicament.length);
+                    //console.log(data.medicament[0]);
+                    $scope.medicaments = data.medicament;
                 }).
                 error(function(data) {
                     if(data != null)
