@@ -65,6 +65,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           }
         }
       })
+      .state('app.fiche', {
+          url: '/fiche/:medicamentId',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/fiche.html',
+                  controller: 'FicheCtrl'
+              }
+          }
+      })
+      .state('app.medicament', {
+          url: '/admin',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/medicamentList.html',
+                  controller: 'AdminCtrl'
+              }
+          }
+      })
 
  /* .state('app.single', {
     url: '/playlists/:playlistId',

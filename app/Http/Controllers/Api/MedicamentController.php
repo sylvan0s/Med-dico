@@ -7,7 +7,7 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class MedicamentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $medicaments = DB::select("SELECT *  FROM `medicaments` WHERE `created_at` BETWEEN '" . date('Y-m-d', strtotime('-7 days')) . "' AND '" . date('Y-m-d', strtotime('+1 days')) . "' LIMIT 10");
-        return response()->json($medicaments);
+        //
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function fiche($id)
+    {
+        $medicament = DB::select('select * from medicaments where id = ?', [$id]);
+        return response()->json(compact('medicament'));
     }
 
     /**
@@ -47,9 +57,11 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($email_user)
     {
-        //
+        $id_user = DB::table('users')->where('email', $email_user)->value('id');
+        $medicament = DB::select('select * from medicaments where id_user = ?', [$id_user]);
+        return response()->json(compact('medicament'));
     }
 
     /**
