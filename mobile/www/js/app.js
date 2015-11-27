@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
     .value('ApiEndpoint', {
-        url: 'http://10.104.16.15:8888',
+        url: 'http://192.168.43.238:8888',
         token: '',
         email_user: ''
     })
