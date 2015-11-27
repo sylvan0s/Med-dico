@@ -10,9 +10,9 @@
       </button>
     </div>
 
-    <div ng-if="medicaments.length > 0" ng-repeat="medicament in medicaments">
+    <ion-item ng-if="medicaments.length > 0" ng-repeat="medicament in medicaments" href="#/app/fiche/{{medicament.id}}">
         {{medicament.name}}
-    </div>
+    </ion-item>
     <div ng-if="medicaments.length <= 0">
       Not found
     </div>

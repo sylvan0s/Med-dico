@@ -6,8 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
     .value('ApiEndpoint', {
-        //url: 'http://localhost:8100/api'
-        url: 'http://10.104.16.76:8888',
+        url: 'http://10.104.16.15:8888',
         token: '',
         email_user: ''
     })
@@ -37,7 +36,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl'
       })
-
       .state('app.search', {
         url: '/search',
         views: {
@@ -47,8 +45,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           }
         }
       })
-
-    .state('app.browse', {
+      .state('app.browse', {
         url: '/browse',
         views: {
           'menuContent': {
@@ -83,6 +80,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
           }
       })
+      .state('app.add', {
+            url: '/admin/add',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/medicamentAdd.html',
+                    controller: 'AdminCtrl'
+                }
+            }
+        })
 
  /* .state('app.single', {
     url: '/playlists/:playlistId',
